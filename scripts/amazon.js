@@ -62,10 +62,9 @@ document.querySelectorAll('.js-add-to-cart')
       const productId = button.dataset.productId;
 
       let matchingItem;
-      const quantityvalue =Number(document.querySelector(`.js-quantity-selector-${productId}`).value);//but this way Number is working .
+      const quantity =Number(document.querySelector(`.js-quantity-selector-${productId}`).value);//but this way Number is working .
       /*Number(quantityvalue);
       number method not working and now quantity of product working.*/ 
-      console.log(quantityvalue);
       cart.forEach((item) => {
         if (productId === item.productId) {
           matchingItem = item;
@@ -76,8 +75,8 @@ document.querySelectorAll('.js-add-to-cart')
         matchingItem.quantity += 1;
       } else {
         cart.push({
-          productId: productId,
-          quantity: 1
+          productId,
+          quantity
         });
       }
 
