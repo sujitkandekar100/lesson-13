@@ -68,7 +68,9 @@ document.querySelectorAll('.js-add-to-cart')
           matchingItem = item;
         }
       });
-      let messagesShow=document.querySelector(`.js-added-to-cart-${productId}`);
+      displayMessage();
+      function displayMessage(){
+        let messagesShow=document.querySelector(`.js-added-to-cart-${productId}`);
       messagesShow.classList.add('added-message-show');
       let messageStore;
       if(messageStore)
@@ -80,6 +82,8 @@ document.querySelectorAll('.js-add-to-cart')
           messagesShow.classList.remove('added-message-show');
         },2000);
         messageStore=meesageSet;
+      }
+    
       }
      
       
