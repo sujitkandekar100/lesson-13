@@ -68,12 +68,21 @@ document.querySelectorAll('.js-add-to-cart')
           matchingItem = item;
         }
       });
-      
       let messagesShow=document.querySelector(`.js-added-to-cart-${productId}`);
       messagesShow.classList.add('added-message-show');
-      setTimeout(()=>{
-        messagesShow.classList.remove('added-message-show');
-      },2000);
+      let messageStore;
+      if(messageStore)
+      {
+        clearTimeout();
+      }
+      else{
+        let meesageSet=setTimeout(()=>{
+          messagesShow.classList.remove('added-message-show');
+        },2000);
+        messageStore=meesageSet;
+      }
+     
+      
       let quantity=document.querySelector(`.js-quantity-selector-${productId}`);
       let productQuantity=Number(quantity.value);
       if (matchingItem) {
