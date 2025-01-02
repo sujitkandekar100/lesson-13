@@ -67,18 +67,17 @@ document.querySelectorAll('.js-add-to-cart')
           matchingItem = item;
         }
       });
-
+      let quantity=document.querySelector(`.js-quantity-selector-${productId}`);
+      let productQuantity=Number(quantity.value);
       if (matchingItem) {
-        matchingItem.quantity += 1;
+        matchingItem.quantity += productQuantity;
       } else {
         cart.push({
           productId: productId,
-          quantity: 1
+          quantity: productQuantity
         });
       }
-      let quantity=document.querySelector(`.js-quantity-selector-${productId}`);
-      let productQuantity=quantity.value;
-      console.log(productQuantity);
+      
 
       let cartQuantity = 0;
 
